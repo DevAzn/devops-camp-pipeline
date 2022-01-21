@@ -5,23 +5,10 @@ pipeline {
     environment {
         PIPELINE_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
         HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
-        HARBOR_PROJECT = '<YOUR HARBOR PROJECT NAME>'
-        DB_IMAGE_NAME = 'db'
-    }
-    stages {
-        stage('Application repository') {
-            steps {
-                echo "Cloning application repository"
-                sh 'git clone pipeline {
-    agent {
-        label 'jenkins-agent'
-    }
-    environment {
-        PIPELINE_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-        HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
         HARBOR_PROJECT = 'jjennings-harbor-project'
         DB_IMAGE_NAME = 'db'
     }
+    
     stages {
         stage('Application repository') {
             steps {
